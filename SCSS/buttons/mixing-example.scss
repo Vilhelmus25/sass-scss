@@ -1,0 +1,17 @@
+@mixin unstyled-list($color, $background: #fff){        /* :#fff az alapértelmezett értéke és ha nem adok paraméterül lent semmit */
+    background-color: $background; 
+    color: $color;          /* bármennyi paraméter lehet */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.custom-list{
+    /*color: red;*/
+    @include unstyled-list(red);
+}
+
+.custom-list-2{
+    /*color: blue;*/  /* Ha nincs paraméter akkor így kell */
+    @include unstyled-list(blue, #ff0);
+}

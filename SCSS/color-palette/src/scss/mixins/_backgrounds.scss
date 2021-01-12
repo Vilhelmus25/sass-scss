@@ -1,0 +1,8 @@
+
+@mixin generate-colored-backgrounds($palette){
+    @each $key, $value in $palette {
+        .background--#{"" + $key}{        // így már string-ként és nem színként fogja kezelni a színt, ha színként kezeli, akkor hibát dob!
+            background-color: $value;
+        }
+    }
+}

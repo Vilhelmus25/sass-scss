@@ -1,0 +1,7 @@
+@mixin generate-colored-texts($palette){
+    @each $key, $value in $palette {
+        .text--#{"" + $key}{        // így már string-ként és nem színként fogja kezelni a színt, ha színként kezeli, akkor hibát dob!
+            color: $value;
+        }
+    }
+}

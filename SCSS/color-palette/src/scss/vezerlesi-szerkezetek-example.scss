@@ -1,0 +1,29 @@
+//Ciklusok: for, each, while
+//if..else
+
+$colors: (
+black: black,
+white: white,
+success: green, 
+warning: orange,
+danger: red
+);
+
+@each $key, $value in $colors {
+    @if $key != black and $key != white{
+        .text--#{$key}{
+            color: $value;
+            // amennyiben a kulcs nem fekete és nem fehér
+        }
+    }   
+    // @else{}
+    // @else if{}
+}
+
+$grid: 12;
+@for $i from 1 through $grid{
+    .col-#{$i} {
+        width: 100% * ($i / $grid);
+    }
+    //interpolation-el hozzáfűzöm az i-t: #{$i}
+}

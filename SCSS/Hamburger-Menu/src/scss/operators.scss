@@ -1,0 +1,61 @@
+@debug -------------------EQUALITY------------------------------;
+
+
+@debug 1px == 1;         /* a műveletek eredményét tudom vizsgálni, ami megjelenik az outputra */
+@debug 1px == 1px;      /* a watch-ot ilyenkor nem tudom használni a compile-kor:       sass (relative path) */
+
+
+@debug 10px == 1cm;
+@debug 48px == 0.5in;
+@debug 0.999999999999999999 == 1;
+
+@debug Arial == 'Arial';
+@debug Arial == "Arial";
+@debug "Arial" == "Arial";
+@debug 'Arial' == "Arial";
+@debug Arial != "Arial";
+
+@debug true == true;
+@debug true != false;
+
+
+@debug -------------------RELATIONS------------------------------;
+
+@debug 100>50;
+@debug 10px<17px;
+@debug 96px<1in;
+@debug 1ms <= 10s;
+
+
+
+
+
+@debug -------------------MATH------------------------------;
+
+@debug 10s + 5s;
+@debug 10s - 50ms;
+@debug 10px * 2;
+@debug 10px * 2px;
+@debug 10px / 2;                /*  ilyenkor mindig stringként fog működni */
+@debug (10px/2);                /* így már jó */
+@debug 10px % 2;
+
+@debug -------------------STRING------------------------------;
+
+$postfix: "--10";                                   /* Na erre használjuk!      .col--10::before */
+.col#{$postfix}::before{
+    font: 16px/16px  "Times " + "New Roman", Times, serif;          /* stringek összefűzűsűre is jó a / szóközökkel a két elemek között  ;  - jel is hasonlóan működik*/
+    /* font: #{16px/16px}  "Times " + "New Roman", Times, serif; */
+   /*  content: track - list; */
+   content: #{"track" + "list"};        /* interpolation, így összefűzi*/
+    /* a / jel ha zárójelezve van, akkor matematikai művelet lesz, ha natívan, akkor összefűzi mint stringeket */
+}
+/* @debug "Times " + "New Roman"; */
+
+@debug -------------------BOOLEAN------------------------------;
+
+@debug not true;
+@debug true and false;
+@debug true or false;
+
+
