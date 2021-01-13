@@ -1,5 +1,7 @@
 @use "../variables/colors";
 @use "../mixins/texts";
+@use "../functions/var.scss" as *;
+@use "../functions/get-default-theme" as *;
 @use "sass:map";
 
 .text{
@@ -8,9 +10,13 @@
 
 }
 
-@include texts.generate-colored-texts(
+/* @include texts.generate-colored-texts(
     map.merge(
         map.get(colors.$colors, theme),
         map.get(colors.$colors, base)
     )
 );
+ */
+
+ @include texts.generate-colored-texts(map.merge(get-default-theme(),var(base)));
+

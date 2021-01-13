@@ -1,13 +1,46 @@
-@function summarize-numbers($first: 0, $second: 0){         //default érték
-    @if type-of($value: $first) != number {
-        @error "First number is not a number";
-    }
-    @if type-of($value: $second) != number {
-        @error "Second number is not a number";
-    }
-    @return $first + $second;   
-}
+@use "sass:list";
+
+// @function summarize-numbers($first: 0, $second: 0){         //default érték
+//     @if type-of($value: $first) != number {
+//         @error "First number is not a number";
+//     }
+//     @if type-of($value: $second) != number {
+//         @error "Second number is not a number";
+//     }
+//     @return $first + $second;   
+// }
 
 /* @debug summarize-numbers();
 @debug summarize-numbers(10, 20); */
-@debug summarize-numbers("sass");
+
+@function summarize-numbers($numbers...){         //arbitrary változó
+   $sum: 0;
+    @for $i from 1 through list.length($numbers){
+        $value: list.nth($numbers, $i);
+        @if type-of($value) != number{
+            @error "The " + $i + ". parameter is not a number";
+        }
+        $sum: $sum + $value;            // a numbers lista i-edik elme
+   }
+    @return $sum;   
+}
+
+// @debug summarize-numbers(1,2,3,4);      // 4 paraméter egy listaként adódik át.
+
+@function delete-list-element($list, $index){
+    $new-list: ();          // üres lista
+
+    $length: list.length($list);
+    @if $index > $length{
+        @error "Element not exists!";
+    }
+    @for $i from 1 through $length{      // list, a fenti @use-olt lista, a $list pedig a param.
+        @if $i != $index{
+            $new-list: list.append($new-list, list.nth($list, $i));
+        }
+    }
+
+    @return $new-list;
+}
+
+@debug delete-list-element(1 2 3 4, 2);         // lista és melyik elemet szeretném törölni
