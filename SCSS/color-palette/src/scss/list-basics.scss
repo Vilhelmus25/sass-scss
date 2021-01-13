@@ -1,0 +1,23 @@
+@use "sass:list";
+
+$padding: 0.5rem, 1rem, 2rem;
+@debug list.nth($padding, 2);      //sass-ben az indexelés 1-től kezdődik   (1rem)
+
+@debug list.append($padding, 3rem);
+@debug $padding;    // az eredetit mutatja, mert nem mentettük el az append-et egy változóba
+
+$padding: list.append($padding, 3rem);
+@debug $padding;    // így már jó
+
+@debug list.length($padding);
+
+@debug list.separator($padding);            // mi volt a szeparátor az elemek között, most , és nem a space, spaceel is lehetne
+
+@debug list.join($padding, 4rem 5rem);      // vessző nélkül join-oljuk hozzá, de mivel a többi elem vesszővel van, ezt is vesszővel fogja elválasztani
+@debug list.join($padding, (4rem, 5rem));     // ugyanaz, így lehetséges
+
+@debug list.index($padding, 2 rem);   // szerepel-e az adott elem és az hányadik indexű
+@debug list.index($padding, 20 rem);   // szerepel-e az adott elem és az hányadik indexű, ha nem akkor null-t kapunk vissza
+
+
+

@@ -1,0 +1,13 @@
+@function summarize-numbers($first: 0, $second: 0){         //default érték
+    @if type-of($value: $first) != number {
+        @error "First number is not a number";
+    }
+    @if type-of($value: $second) != number {
+        @error "Second number is not a number";
+    }
+    @return $first + $second;   
+}
+
+/* @debug summarize-numbers();
+@debug summarize-numbers(10, 20); */
+@debug summarize-numbers("sass");
