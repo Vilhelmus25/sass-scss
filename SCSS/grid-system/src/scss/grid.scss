@@ -1,0 +1,7 @@
+@import "variables/variables";
+@import "mixins/mixins";
+@import "functions/functions";
+
+@include generate-container();          // ez is kell, használjuk a mixinünket, meghívjuk!
+@include column-default-style();     
+@include generate-columns();     
