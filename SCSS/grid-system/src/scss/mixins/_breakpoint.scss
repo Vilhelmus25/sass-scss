@@ -36,6 +36,11 @@
             }
         }
 
+        @mixin desktop-up {
+            @media only screen and (min-width: var(grid-breakpoint-desktop)){        // úgy akarjuk, hogy bármilyen contetntet bele tudjunk tenni
+                @content;       // ez oldja meg
+            }
+        }
 
 @mixin desktop-down {
     @media only screen and (max-width: var(grid-breakpoint-desktop) -1px){        // kell a -1 px, mert ha a 640 px alatt vagyunk
@@ -43,9 +48,4 @@
     }
 }
 
-@mixin desktop-up {
-    @media only screen and (min-width: var(grid-breakpoint-desktop)){        // úgy akarjuk, hogy bármilyen contetntet bele tudjunk tenni
-        @content;       // ez oldja meg
-    }
-}
 

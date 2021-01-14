@@ -14,7 +14,7 @@
 
     @else if $number == 2{
         @include mobile-up{                                                 // kell a mobile media query
-            width:  $width;
+            width: $width;
         }
     }
 
@@ -26,7 +26,7 @@
 
     @else if $number == 4{
         @include desktop-up{                                                 // kell a mobile media query
-            width:  $width;
+            width: $width;
         }
     }
 }

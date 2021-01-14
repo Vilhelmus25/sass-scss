@@ -4,31 +4,7 @@
 @use "../functions/get-default-theme" as *;
 @use "sass:map";
 
-/* @include backgrounds.generate-colored-backgrounds(colors.$color-palette);
-@include backgrounds.generate-lighter-colored-backgrounds(colors.$color-palette, colors.$lighter-colors);
-@include backgrounds.generate-darker-colored-backgrounds(colors.$color-palette, colors.$darker-colors); */
-//$theme: map.get(colors.$colors, theme);
-
-// @include backgrounds.generate-colored-backgrounds(var(theme));       // ez egy map-et ad vissza
-// @include backgrounds.generate-lighter-colored-backgrounds(var(theme), var(lighter));
-// @include backgrounds.generate-darker-colored-backgrounds(var(theme), var(darker));
-
-// @include backgrounds.generate-colored-backgrounds(var(themes-flatui));       // ez egy map-et ad vissza
-// @include backgrounds.generate-lighter-colored-backgrounds(var(theme-flatui), var(lighter));
-// @include backgrounds.generate-darker-colored-backgrounds(var(theme-flatui), var(darker));
-
-// @include backgrounds.generate-colored-backgrounds(var(themes-material));       // ez egy map-et ad vissza
-// @include backgrounds.generate-lighter-colored-backgrounds(var(theme-material), var(lighter));
-// @include backgrounds.generate-darker-colored-backgrounds(var(theme-material), var(darker));
-
-
-// @include backgrounds.generate-colored-backgrounds(var(themes-#{var(defaultTheme)}));       // ez egy map-et ad vissza
-// @include backgrounds.generate-lighter-colored-backgrounds(var(theme-#{var(defaultTheme)}), var(lighter));
-// @include backgrounds.generate-darker-colored-backgrounds(var(theme-#{var(defaultTheme)}), var(darker));
-
-
 $theme: get-default-theme();
-@include backgrounds.generate-colored-backgrounds($theme);       // ez egy map-et ad vissza
+@include backgrounds.generate-colored-backgrounds($theme);
 @include backgrounds.generate-lighter-colored-backgrounds($theme, var(lighter));
 @include backgrounds.generate-darker-colored-backgrounds($theme, var(darker));
-

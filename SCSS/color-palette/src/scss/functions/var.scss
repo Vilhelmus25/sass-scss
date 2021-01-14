@@ -4,11 +4,10 @@
 
 @function var($string, $data: colors.$colors){
     $keys: get-keys($string);
-    
     @each $key in $keys{
        /*  @debug type-of($value: list.nth($keys, 1));
         @debug type-of(red);                // a listában lévő kulcsok stringek, viszont a fájlban színekként vannak */
-        
+        @debug $keys;
         // megoldás:
         // idézőjelek a _colors.scss-ben!
         $data: map.get($data, $key);
